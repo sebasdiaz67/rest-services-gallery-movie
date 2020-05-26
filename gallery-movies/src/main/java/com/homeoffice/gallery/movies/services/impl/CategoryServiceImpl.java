@@ -8,38 +8,38 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.homeoffice.gallery.movies.models.entities.Genre;
-import com.homeoffice.gallery.movies.models.repositories.GenreRepository;
-import com.homeoffice.gallery.movies.services.GenreService;
+import com.homeoffice.gallery.movies.models.entities.Categorie;
+import com.homeoffice.gallery.movies.models.repositories.CategoryRepository;
+import com.homeoffice.gallery.movies.services.CategoryService;
 
 @Service
 @Transactional
-public class GenreServiceImpl implements GenreService {
+public class CategoryServiceImpl implements CategoryService {
 
 	@Autowired
-	private GenreRepository genreRepository;
+	private CategoryRepository genreRepository;
 
 	@Override
 	@Transactional(readOnly = true)
-	public List<Genre> findAll() {
+	public List<Categorie> findAll() {
 		return genreRepository.findAll();
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public Page<Genre> findAll(Pageable pageable) {
+	public Page<Categorie> findAll(Pageable pageable) {
 		return genreRepository.findAll(pageable);
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public Genre findById(Long id) {
+	public Categorie findById(Long id) {
 		return genreRepository.findById(id).orElse(null);
 	}
 
 	@Override
-	public Genre save(Genre genre) {
-		return genreRepository.save(genre);
+	public Categorie save(Categorie category) {
+		return genreRepository.save(category);
 	}
 
 }

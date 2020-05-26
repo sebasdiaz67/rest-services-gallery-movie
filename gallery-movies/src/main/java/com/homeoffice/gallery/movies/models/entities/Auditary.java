@@ -1,5 +1,6 @@
 package com.homeoffice.gallery.movies.models.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -11,7 +12,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Auditary {
+public class Auditary implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	@Column(name = "create_date")
 	@Temporal(TemporalType.TIMESTAMP)

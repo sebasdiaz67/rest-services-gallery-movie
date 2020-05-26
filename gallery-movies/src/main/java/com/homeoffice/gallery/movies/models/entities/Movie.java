@@ -35,8 +35,9 @@ public class Movie extends Auditary implements Serializable {
 
 	private String title;
 
-	@JsonIgnoreProperties(value = { "genre" }, allowSetters = true)
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Genre> genres;
+	@JsonIgnoreProperties(value = { "movie" }, allowSetters = true)
+	@OneToMany(mappedBy = "movie", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Categorie> categories;
 
+	private Boolean status;
 }

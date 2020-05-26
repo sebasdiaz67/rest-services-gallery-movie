@@ -23,8 +23,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "genres")
-public class Genre extends Auditary implements Serializable {
+@Table(name = "categories")
+public class Categorie extends Auditary implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -35,8 +35,10 @@ public class Genre extends Auditary implements Serializable {
 	private String name;
 	private String description;
 
-	@JsonIgnoreProperties(value = { "genres" })
+	@JsonIgnoreProperties(value = { "categories" })
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "movie_id")
 	private Movie movie;
+	
+	private Boolean status;
 }
