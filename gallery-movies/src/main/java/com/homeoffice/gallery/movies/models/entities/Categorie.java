@@ -1,7 +1,9 @@
 package com.homeoffice.gallery.movies.models.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -10,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -24,7 +28,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "categories")
-public class Categorie extends Auditary implements Serializable {
+public class Categorie implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -41,4 +45,15 @@ public class Categorie extends Auditary implements Serializable {
 	private Movie movie;
 	
 	private Boolean status;
+	
+	@Column(name = "create_date")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date createDate;
+	@Column(name = "create_user")
+	private String createUser;
+	@Column(name = "update_date")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date updateDate;
+	@Column(name = "update_user")
+	private String updateUser;
 }
